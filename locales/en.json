@@ -1,7 +1,11 @@
 {
   "home": "Home",
   "about": {
-    "about": "About",
+    "label": "About",
     "greeting": "Hello"
+  },
+  "new": {
+    "label": "New",
+    "btnAdd": "Add star"
   }
 }

@@ -4,6 +4,10 @@
  * ---------------------
  * */
 
-export const routerPagesNames = { about: 'about' as const, index: 'index' as const };
+export const routerPagesNames = {
+  about: 'about' as const,
+  index: 'index' as const,
+  new: 'new' as const,
+};
 
-export type TypedRouteList = 'about' | 'index';
+export type TypedRouteList = 'about' | 'index' | 'new';

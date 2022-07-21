@@ -7,7 +7,7 @@
 import { defineNuxtPlugin } from '#app';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const routesList = { about: 'about', index: 'index' };
+  const routesList = { about: 'about', index: 'index', new: 'new' };
 
   return {
     provide: {

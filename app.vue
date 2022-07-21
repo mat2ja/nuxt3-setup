@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 useState('counter', () => 2);
-
-const { x, y } = useMouse();
 </script>
 
 <template>
@@ -10,7 +8,6 @@ const { x, y } = useMouse();
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
-      <div>pos: {{ x }}, {{ y }}</div>
     </div>
   </div>
 </template>

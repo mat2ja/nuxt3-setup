@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import { NButton, NSpace, NInput } from 'naive-ui';
-import { useMeStore } from '~~/store/me';
+import { NButton, NInput } from 'naive-ui';
+import { useUserStore } from '~~/store/user';
 
-const store = useMeStore();
+const store = useUserStore();
 const counter = useState<number>('counter');
 
-const { data, pending, refresh } = useFetch(
-  () => `https://jsonplaceholder.typicode.com/todos/${counter.value}`
-);
+const { data, pending, refresh } = useFetch('/api/stars');
 
 const changeNameHandler = (value: string) => {
   store.changeName(value);
@@ -17,10 +15,10 @@ const changeNameHandler = (value: string) => {
 <template>
   <div>
     <h1>Homepage</h1>
-    <div>
+    <div flex flex-col gap-4>
       <p>{{ $t('about.greeting') }} {{ store.name }}</p>
       <NInput type="text" :value="store.name" @input="changeNameHandler" />
-      <n-space align="center">
+      <div flex gap-2 items-center>
         <NButton
           circle
           strong
@@ -37,8 +35,8 @@ const changeNameHandler = (value: string) => {
         <NButton circle strong type="warning" size="large" @click="counter++">
           +
         </NButton>
-        <NButton size="small" @click="refresh()">Refetch</NButton>
-      </n-space>
+        <NButton ml-6 size="small" @click="refresh()">Refetch</NButton>
+      </div>
       <p v-if="!data && pending">Loading...</p>
       <pre v-if="data" text="orange-700">{{ data }}</pre>
       <p v-if="pending">pending...</p>

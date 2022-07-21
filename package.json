@@ -15,10 +15,12 @@
     "naive-ui": "^2.31.0",
     "nuxt": "3.0.0-rc.4",
     "nuxt-typed-router": "^1.1.2",
+    "prisma": "^4.1.0",
     "unplugin-vue-components": "^0.21.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.1.9",
+    "@prisma/client": "^4.1.0",
     "pinia": "^2.0.14"
   }
 }

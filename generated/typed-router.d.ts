@@ -13,11 +13,12 @@ import type {
 } from 'vue-router';
 import type { TypedRouteList } from './__routes';
 
-export type RouteListDecl = { about: 'about'; index: 'index' };
+export type RouteListDecl = { about: 'about'; index: 'index'; new: 'new' };
 
 export type TypedRouteParams = {
   about: never;
   index: never;
+  new: never;
 };
 
 type TypedRouteParamsStructure = {

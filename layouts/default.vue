@@ -1,16 +1,11 @@
-<script lang="ts" setup>
-import { useTypedRouter } from '~~/generated';
-const { router } = useTypedRouter();
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div>
-    <nav class="flex gap-4 items-center">
+    <nav class="flex gap-4 items-center" mb-4>
       <NuxtLink to="/"> {{ $t('home') }} </NuxtLink>
-      <NuxtLink to="/about"> {{ $t('about.about') }} </NuxtLink>
-      <p class="font-semibold" @click="router.push({ name: 'about' })">
-        {{ $t('about.about') }}
-      </p>
+      <NuxtLink to="/about"> {{ $t('about.label') }} </NuxtLink>
+      <NuxtLink to="/new"> {{ $t('new.label') }} </NuxtLink>
     </nav>
     <slot />
   </div>
