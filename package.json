@@ -21,6 +21,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.1.9",
     "@prisma/client": "^4.1.0",
-    "pinia": "^2.0.14"
+    "pinia": "^2.0.14",
+    "vue-query": "^1.25.2"
   }
 }

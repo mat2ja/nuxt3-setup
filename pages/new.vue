@@ -1,33 +1,62 @@
 <script setup lang="ts">
-import { NInput, NButton } from 'naive-ui';
+import { NInput, NButton, NCard, useMessage } from 'naive-ui';
+import { useStarCreate } from '~~/composables/api/stars';
 
 const star = reactive({
   name: '',
   constellation: '',
 });
 
-const addStar = async () => {
+const resetData = () => {
+  star.name = '';
+  star.constellation = '';
+};
+
+const { data: addedStar, isLoading, mutate: addStar } = useStarCreate();
+
+const message = useMessage();
+
+const onStarSubmit = async () => {
   console.log('star :>> ', star);
   if (star.name && star.constellation) {
-    const res = await $fetch('/api/stars', {
-      method: 'POST',
-      body: star,
+    addStar(star, {
+      onSuccess: (res) => {
+        console.log('star added :>> ', res);
+        message.success('Star added successfully');
+        resetData();
+      },
     });
-    console.log('res :>> ', res);
   } else {
-    console.log('missing name or constellation');
+    message.error('Please fill all the fields');
   }
 };
 </script>
 
 <template>
-  <form @submit.prevent="addStar" space-y-4>
-    <div grid grid-cols-2 gap-4>
-      <NInput v-model:value="star.name" placeholder="name" />
-      <NInput v-model:value="star.constellation" placeholder="constellation" />
-    </div>
-    <NButton type="primary" attr-type="submit">{{ $t('new.btnAdd') }}</NButton>
-  </form>
+  <div space-y-8>
+    <form @submit.prevent="onStarSubmit" space-y-4>
+      <div flex gap-4 justify-center>
+        <NInput size="large" v-model:value="star.name" placeholder="name" />
+        <NInput
+          size="large"
+          v-model:value="star.constellation"
+          placeholder="constellation"
+        />
+      </div>
+      <NButton
+        size="large"
+        type="primary"
+        secondary
+        attr-type="submit"
+        :loading="isLoading"
+      >
+        {{ $t('new.btnAdd') }}
+      </NButton>
+    </form>
+    <NCard title="Last added" v-if="addedStar">
+      <pre>{{ addedStar }}</pre>
+    </NCard>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
