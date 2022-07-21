@@ -9,9 +9,9 @@
   "devDependencies": {
     "@css-render/vue3-ssr": "^0.15.10",
     "@intlify/nuxt3": "^0.2.3",
-    "@unocss/nuxt": "^0.44.0",
-    "@vueuse/core": "^8.9.1",
-    "@vueuse/nuxt": "^8.9.1",
+    "@unocss/nuxt": "^0.44.5",
+    "@vueuse/core": "^8.9.4",
+    "@vueuse/nuxt": "^8.9.4",
     "naive-ui": "^2.31.0",
     "nuxt": "3.0.0-rc.4",
     "nuxt-typed-router": "^1.1.2",
@@ -19,9 +19,9 @@
     "unplugin-vue-components": "^0.21.1"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.1.9",
+    "@pinia/nuxt": "^0.3.0",
     "@prisma/client": "^4.1.0",
-    "pinia": "^2.0.14",
+    "pinia": "^2.0.16",
     "vue-query": "^1.25.2"
   }
 }
